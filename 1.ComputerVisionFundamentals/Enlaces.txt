@@ -1,0 +1,4 @@
+Artículo de medium: https://medium.com/@maunesh/finding-the-right-parameters-for-your-computer-vision-algorithm-d55643b6f954
+
+CANNY GUI HELPER TOOL: https://github.com/maunesh/opencv-gui-helper-tool
+OPENCV GUI PARAMETER TUNER: https://github.com/maunesh/opencv-gui-parameter-tuner
