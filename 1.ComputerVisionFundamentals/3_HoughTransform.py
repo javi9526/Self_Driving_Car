@@ -27,10 +27,7 @@ ignore_mask_color = 255
 
 # This time we are defining a four sided polygon to mask
 imshape = image.shape
-vertices = np.array([[(0.48*xsize,0.5*ysize),
-                    (0.5*xsize,0.5*ysize),
-                    (0.92*xsize,ysize),
-                    (0.08*xsize,ysize)]],
+vertices = np.array([[(0.48*xsize,0.5*ysize),(0.5*xsize,0.5*ysize),(0.92*xsize,ysize),(0.08*xsize,ysize)]],
                     dtype=np.int32)
 cv2.fillPoly(mask, vertices, ignore_mask_color)
 masked_edges = cv2.bitwise_and(edges, mask)
