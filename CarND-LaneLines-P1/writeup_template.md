@@ -19,7 +19,8 @@ The goals / steps of this project are the following:
 [image4]: ./test_images_output/ROI_edgessolidWhiteCurve.jpg "ROI edges"
 [image5]: ./test_images_output/lines_imgsolidWhiteCurve.jpg "Lane lines"
 [image6]: ./test_images_output/lane_lines_imgsolidWhiteCurve.jpg "Image with lane
-lines"
+lines""
+[image7]: ./examples/laneLines_thirdPass.jpg "Image with unified lane lines"
 ---
 
 ### Reflection
