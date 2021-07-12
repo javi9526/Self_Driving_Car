@@ -1,9 +1,3 @@
-# **Finding Lane Lines on the Road**
-
-## Writeup Template
-
----
-
 **Finding Lane Lines on the Road**
 
 The goals / steps of this project are the following:
@@ -13,12 +7,12 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./test_images_output/graysolidWhiteCurve.jpg "Grayscale"
-[image2]: ./test_images_output/blur_graysolidWhiteCurve.jpg "Blurred grayscale"
-[image3]: ./test_images_output/edgessolidWhiteCurve.jpg "Edges"
-[image4]: ./test_images_output/ROI_edgessolidWhiteCurve.jpg "ROI edges"
-[image5]: ./test_images_output/lines_imgsolidWhiteCurve.jpg "Lane lines"
-[image6]: ./test_images_output/lane_lines_imgsolidWhiteCurve.jpg "Image with lane
+[image1]: ./test_images_output/gray_solidWhiteCurve.jpg "Grayscale"
+[image2]: ./test_images_output/blur_gray_solidWhiteCurve.jpg "Blurred grayscale"
+[image3]: ./test_images_output/edges_solidWhiteCurve.jpg "Edges"
+[image4]: ./test_images_output/ROI_edges_solidWhiteCurve.jpg "ROI edges"
+[image5]: ./test_images_output/lines_img_solidWhiteCurve.jpg "Lane lines"
+[image6]: ./test_images_output/lane_lines_img_solidWhiteCurve.jpg "Image with lane
 lines"
 [image7]: ./examples/laneLines_thirdPass.jpg "Image with unified lane lines"
 ---
@@ -62,7 +56,7 @@ function. Now, the pipeline follows these steps:
 
 1-  A for loop filters and classifies the lines obtained from Hugh's
 transform attending to their slopes. Only some slopes ranges are valid when
-considering lines as lane lines. These lines are defined by their ends points
+considering lines as part of lane lines. These lines are defined by their ends points
 coordinates.
 
 2- A 1d-polynomial least squares fitting for each lane line using the classified coordinates.
@@ -70,12 +64,12 @@ This is carried out with de numpy.polyfit() function, which returns a vector wit
 of the polynomial function (f(x)=mx + b, where the coefficients are m and b).
 
 3- Extracting the desired points of these functions to obtain the single lane
-image.
+image. It's done with de numpy.polyval() function.
 
 This functionality is encapsuled in a try except block in order to avoid
 errors when lines cannot be identified by Hough's algorithm.
 
-The results are as follows.
+The result is as follows.
 
 ![alt text][image7]
 
@@ -84,8 +78,9 @@ The results are as follows.
 
 
 One potential shortcoming would be what would happen when lane lines are erased and
-hough can't even recognize one of them. In this case we are not representing
-them, but in a real situation, there should be another way to keep the path.
+hough can't even recognize one of them. In this case what we do is not to represent
+the lines in that case, but in a real situation, there should be another way
+to keep the path.
 
 Another shortcoming could be the brightness and color changing throughout the day, or
 even when going through a tunnel. As the parameters are fixed, the behaviour
@@ -102,5 +97,5 @@ Another potential improvement could be to make Canny and Hough parameters
 variable depending on brightness sensors values or deep learning methods.
 
 Another improvement could be to select the ROI before applying gaussian blur
-and obtaining the edges image with Cannys algorithm. This could save some
+and obtaining the edges image with Cannys algorithm. This could decrease the
 computational cost.
